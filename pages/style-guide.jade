@@ -1,0 +1,253 @@
+extends ../layouts/layout.jade
+
+block vars
+  - var bodyClass = 'style-guide'
+
+block content
+  +hero(
+    'H1 Hero: Monteserrat Bold #ffffff 46/48',
+    'http://placehold.it/1280x450',
+    'http://placehold.it/768x270')
+
+  div.container-fluid.break-medium
+    div.row
+      div.col-sm-3.hidden-xs.hidden-sm.fpo
+
+      div.col-xs-12.col-md-8.break-large
+        p.eyebrow eyebrow: Montserrat Regular #888888 14/16, 100 Tracking, all caps
+        h1.sourced H1: Montserrat Bold #0f2537 46/48
+        p.source [source]<span>|</span>[month day(#), year(#)]<span>|</span>Montserrat regular #666666 12/14, all caps
+
+        +share-links('#','#','#','#','#','javascript:void(0)','#',false,' break-medium')
+
+        p Primary Body: Merriweather Regular #0f2537 18/28. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+        p.break-medium Nullam id dolor id nibh ultricies vehicula ut id elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla.
+        
+        h2 H2: Montserrat Regular #0f2537 34/38
+        p.break-large Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur.
+        
+        h3 H3: Montserrat Bold #0f2537 26/30
+        p.break-medium Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur.
+        
+        h4 H4: Montserrat Bold #0f2537 18/24
+        p.break-large Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur.
+        hr.break-large
+        
+        h3 More text Styles
+        p.quote “Quote: Merriweather Italic #666666 20/32 (In quotes, centered or left aligned.) Lorem ipsum dolor sit amet adispicing. Curabitur blandit tempus porttitor.”
+        p.attribution.break-large - Attribution: Montserrat Bold #0f2537 16/20 (Name, Qualifier)
+        
+        +pull-quote
+          p.break-large Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Curabitur porttitor, nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Rum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Curabitur blandit tempus porttitor.
+          p Bullet styles are many things
+        
+        ul.break-large
+          li They inherit the sizes and spacing of their body copy
+          li Blue dots seperate items
+          li They can sometimes be very very long and the copy will wrap on to a second line, it is important that there is enough spacing
+          li Sometimes bullets end in a period, just be consistent within a group
+        
+        ol.break-large
+          li They inherit the sizes and spacing of their body copy
+          li Blue dots seperate items
+          li They can sometimes be very very long and the copy will wrap on to a second line, it is important that there is enough spacing
+          li Sometimes bullets end in a period, just be consistent within a group
+        
+        div.secondary-body.break-large
+          h4 H4: Montserrat Bold #0f2537 18/24
+          p Secondary Body: Merriweather Regular #0f2537 16/28. Etiam porttitor turpis vitae cursus auctor. Maecenas ac purus et erat rutrum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.
+
+        +disclaimers('Disclaimers', ' break-large')
+          p The information contained in these topics is not intended nor implied to be a substitute for professional medical advice, it is provided for educational purposes only. You assume full responsibility for how you choose to use this information.
+          p <strong>Always seek the advice of your physician</strong> or other qualified healthcare provider before starting any new treatment or discontinuing an existing treatment. Talk with your healthcare provider about any questions you may have regarding a medical condition. Nothing contained in these topics is intended to be used for medical diagnosis or treatment.
+          ul
+            li <strong>Not a Substitute</strong> - The information and materials in Pediatric HouseCalls Symptom Checker should not be used as a substitute for the care and knowledge that your physician can provide to you.
+            li <strong>Supplement</strong> - The information and materials presented here in Pediatric HouseCalls Symptom Checker are meant to supplement the information that you obtain from your physician. If there is a disagreement between the information presented herein and what your physician has told you -- it is more likely that your physician is correct. He or she has the benefit of knowing your child’s medical problems.
+            li <strong>Limitations</strong> - You should recognize that the information and materials presented here in Pediatric HouseCalls Symptom Checker have the following limitations, in comparison to being examined by your own physician:
+              ul
+                li You can have a conversation with your child’s doctor.
+                li Your child’s doctor can perform a physical examination and any necessary tests.
+                li Your child could have an underlying medical problem that requires a physician to detect.
+                li If your child is taking medications, they could influence how he experiences various symptoms.
+          p
+            strong If you think that your child is having a medical emergency, call 911 or the number for the local emergency ambulance service NOW!
+          p
+            strong And when in doubt, call your child’s doctor NOW or go to the closest emergency department.
+          p The search for nearby emergency and urgent care facilities is based upon Google search parameters. You will get results based on how facilities manage their website information.
+          p By using this website, you accept the information provided herein "AS IS." Neither publishers nor the providers of the information contained herein will have any liability to you arising out of your use of the information contained herein or make any expressed or implied warranty regarding the accuracy, content, completeness, reliability, or efficacy of the information contained within this website.
+        
+        h3 Buttons
+        div.inline-buttons.break-large
+          a.btn-primary(href="#") Primary Button
+          a.btn-secondary(href="#") Secondary Button
+          a.btn-load(href="#") Load More
+        div.inline-buttons.break-large
+          a.disabled.btn-primary(href="#") Primary Button
+          a.disabled.btn-secondary(href="#") Secondary Button
+          a.disabled.btn-load(href="#") Load More
+        
+        h3 Links
+        h4 In-Line Links
+        div.row
+          div.col-sm-6.break-large
+            p.break-medium Etiam porttitor turpis vitae cursus auctor. Vestibulum ante <a href="#">inline link</a> in faucibus orci luctus et ultrices posuere. Etiam porttitor turpis vitae cursus auctor. Maecenas ac purus et erat rutrum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.
+            h4 Link List
+            a.link-list(href="#") Montserrat Regular #0062af 16/18
+            a.link-list(href="#") Tortor Fringilla Cras Venenatis Ornare Ipsum Dolor Set
+            a.link-list(href="#") Tortor Fringilla Cras Venenatis Ornare Ipsum Dolor Set
+            a.link-list(href="#") Tortor Fringilla Cras Venenatis Ornare Ipsum Dolor Set
+          div.col-sm-6.break-large
+            p.break-medium Etiam porttitor turpis vitae cursus auctor. Vestibulum ante <a href="#">inline link</a> in faucibus orci luctus et ultrices posuere. Etiam porttitor turpis vitae cursus auctor. Maecenas ac purus et erat rutrum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.
+            h4 Block Level Link Header
+            a.header-link(href="#") Montserrat Bold #0062af 18/24
+            a.header-link(href="#") Tortor Fringilla Cras Venenatis Ornare Ipsum Dolor Set
+            a.header-link(href="#") Tortor Fringilla Cras Venenatis Ornare Ipsum Dolor Set
+        
+        h3 Images
+        img(src='http://placehold.it/1280x700')
+        p.img-caption Image Caption: Merriweather Italic #666666 13/20
+
+        h3.small-margin Accordions
+        +accordion('Accordion Toggle Thing')
+          div.row
+            div.col-xs-12.col-sm-6.content-block
+              ul
+                li
+                  h4 Medical School 2004
+                  p Medical College of Wisconsin  —  Medicine
+                li
+                  h4 Internship 2005
+                  p University of Colorado (Children’s Hospital Colorado)
+                li
+                  h4 Residency Program 2007
+                  p University of Colorado School of Medicine  — Pediatrics
+            div.col-xs-12.col-sm-6.content-block
+              ul
+                li
+                  h4 Fellowships 2010
+                  p University of Colorado School of Medicine Allergy/Immunology — Pediatrics
+                li
+                  h4 Undergraduate School 2000
+                  p University of Wisconsin — Molecular Biology
+
+        +accordion('Accordion Toggle Thing', ' break-large')
+
+        +video(
+          'Black Tie Event Highlight Reel',
+          'http://placehold.it/1280x720',
+          'g-Maueb1_14', ' break-large')
+
+        +primary-action-ctas('', ' break-medium')
+          +primary-action-cta('/assets/img/icon-find-doctor.png','Find a Doctor', 'Start Searching', ' col-sm-6')
+            p Browse and connect with world-class pediatric specialists who treat this condition.
+          +primary-action-cta('/assets/img/icon-ask-experts.png','Ask the Experts', '24/7 Nurse Hotline', ' col-sm-6')
+            p Our nurses are on call all day, every day to help answer your health questions.
+
+      div.col-xs-12.col-sm-12.break-medium
+        h3 Primary Action CTA
+        +primary-action-ctas('', ' break-medium full-width')
+          +primary-action-cta('/assets/img/icon-find-doctor.png','Find a Doctor', 'Start Searching', ' col-sm-4')
+            p Browse and connect with world-class pediatric specialists who treat this condition.
+          +primary-action-cta('/assets/img/icon-ask-experts.png','Ask the Experts', '24/7 Nurse Hotline', ' col-sm-4')
+            p Our nurses are on call all day, every day to help answer your health questions.
+          +primary-action-cta('/assets/img/icon-emergency.png','Emergency or Urgent Care?', 'Help Me Decide', ' col-sm-4')
+            p If at any point you believe your child needs immediate care, call 911 or visit the nearest emergency room.
+        
+        +primary-action-ctas('', ' break-medium full-width')
+          +primary-action-cta(false,'Find a Doctor', 'Start Searching', ' col-sm-4')
+            p Browse and connect with world-class pediatric specialists who treat this condition.
+          +primary-action-cta(false,'Ask the Experts', '24/7 Nurse Hotline', ' col-sm-4')
+            p Our nurses are on call all day, every day to help answer your health questions.
+          +primary-action-cta('','Emergency or Urgent Care?', 'Help Me Decide', ' col-sm-4')
+            p If at any point you believe your child needs immediate care, call 911 or visit the nearest emergency room.
+
+        +primary-action-ctas('', ' break-medium full-width')
+          +primary-action-cta('/assets/img/icon-find-doctor.png','Find a Doctor', 'Start Searching', ' col-sm-4')
+          +primary-action-cta('/assets/img/icon-ask-experts.png','Ask the Experts', '24/7 Nurse Hotline', ' col-sm-4')
+          +primary-action-cta('/assets/img/icon-emergency.png','Emergency or Urgent Care?', 'Help Me Decide', ' col-sm-4')
+
+      +related('Related Items', ' break-large')
+        +related-item('0Montserrat Regular #0062af 16/18', 'http://placehold.it/280x190')
+          p hello i am a block of related item stuff
+        +related-item('1Montserrat Regular #0062af 16/18', 'http://placehold.it/280x190')
+        +related-item('2Montserrat Regular #0062af 16/18', 'http://placehold.it/280x190')
+
+      div.col-xs-12.col-sm-12.break-large
+        +mosaic(
+          'Mosaic',
+          'dam/mosaic-left.jpg',
+          'INNOVATION AT WORK: PHILIPS AMBIENT MRI',
+          'Ethan gives cancer the one-two punch.',
+          'Sed posuere consectetur est at lobortis. Duis mollis, est non luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.',
+          '#',
+          'See Ethan’s Story',
+          'dam/mosaic-right.jpg')
+
+      +media-carousel('Media Carousel')
+        +media-item('Discoveries a Mile High', 'http://placehold.it/480x480')
+        +media-item('Discoveries a Mile High', 'http://placehold.it/480x480', 'test')
+          p slide 2
+        +media-item('Discoveries a Mile High', 'http://placehold.it/480x480')
+          p slide 3
+
+      div.col-xs-12.col-sm-12.break-large
+        +featured-copy('Featured Copy')
+          p Feature Copy: Merriweather Regular #0f2537 20/34. Children’s Hospital Colorado is proud to announce its Advocacy Boot Camp—a new program for adults looking to learn how to advocate for children’s health care issues.
+      
+      h3 Quotes
+      div.col-xs-12.col-sm-10.col-centered
+        +quotes(
+          'dam/quote-baby-img.png', 
+          '“Growing up, I was the kid who was ‘allergic to everything.’ So I made it my mission to become a doctor who could cure the next generation of kids like me.”', 
+          'Daniel Searing, MD', 
+          ' break-medium'
+          )
+        +quotes(
+          false, 
+          '“Growing up, I was the kid who was ‘allergic to everything.’ So I made it my mission to become a doctor who could cure the next generation of kids like me.”', 
+          'Daniel Searing, MD', 
+          ' break-medium'
+          )
+        +quotes(
+          false, 
+          '“Growing up, I was the kid who was ‘allergic to everything.’ So I made it my mission to become a doctor who could cure the next generation of kids like me.”', 
+          'Daniel Searing, MD', 
+          ' break-medium quote-center'
+          )
+        +quotes(
+          false, 
+          '“Growing up, I was the kid who was ‘allergic to everything.’ So I made it my mission to become a doctor who could cure the next generation of kids like me.”', 
+          'Daniel Searing, MD', 
+          ' break-large quote-center'
+          )
+          a.btn-secondary(href="#") See Doctor Searing's Story
+      div.col-xs-12.col-sm-10.col-centered
+        +testimonials('See how he’s partnering with families')
+          div.row
+            +testimonial(
+              'DOWN SYNDROME',
+              'Doug Herzog, Keith’s Dad',
+              ' col-sm-6'
+            )
+              p.quote “We traveled 5,000 miles to get here. Because when we researched Keith’s condition, Dr. Searing’s name came up again and again. His knowledge, research and expertise in immunology spoke for itself, but his kid-friendly approach to caring for our child at Children’s made our long journey feel all the more worth it.”
+            +testimonial(
+              'TYPE 1 DIABETES',
+              'Jane Smith, Lindsay’s Mom',
+              ' col-sm-6'
+            )
+              p.quote “Daniel Searing is the best in the business. We spent so much time at the hospital that when our daughter finished treatment, she actually said she was going to miss her new friend—Dr. Dan.”
+          div.row
+            +testimonial(
+              'ALLERGIES',
+              'Chloe Roberts, Ashley’s Mom',
+              ' col-sm-6'
+            )
+              p.quote “In our follow-up visits to manage our child’s severe allergy condition, Dr. Searing always found new ways to connect with Ashley, like discussing "Tinkerbell" facts with her. He said he had a daughter close to her age, so he knew all the lingo.”
+            +testimonial(
+              'Rheumatoid Arthritis',
+              'Jim Anderson, Matthew’s Dad',
+              ' col-sm-6'
+            )
+              p.quote “Hands down, Dr. Searing knows his stuff. Not only is he one of the best allergy & immunology experts around, but he knows how to connect with his patients. Our son uses humor to cope with his condition, and Dr. Searing made a point to listen attentively and laugh at all his jokes. It made all the difference.”
+          
+        

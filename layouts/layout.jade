@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  - var bodyClass = ''
+  block vars
+  include ../mixins.jade
+  head
+    block title
+      title!= title
+
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    link(rel="stylesheet", type="text/css", href='https://fonts.googleapis.com/css?family=Montserrat:400,700')
+    link(rel="stylesheet", type="text/css", href='https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic')
+    link(rel="stylesheet", type="text/css", href="/assets/styles.css")
+    script(src="/assets/libs/jquery-2.1.4.min.js")
+
+  body(class='#{bodyClass}')
+    header
+      p fpo: header
+
+    block content
+
+    footer
+      p fpo: footer
+
+  script(src='/assets/scripts.js')
+  
