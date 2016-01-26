@@ -3,7 +3,7 @@ var express = require('express');
 var jade = require('jade');
 var app = express();
 var pageDefaults = {
-  title: 'chco'
+  title: 'map play'
 };
 
 app.set('view engine', 'jade');

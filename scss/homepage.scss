@@ -1,0 +1,52 @@
+html { 
+  	background: url(../images/shkspcmp.jpg) no-repeat right center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shkspcmp.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shkspcmp.jpg', sizingMethod='scale')";
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+nav, header {
+	width: 100%;
+	height: auto;
+	background-color: rgba(0,0,0,0.5);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#00000000)";
+	display: table;
+}
+nav ul {
+	padding: 0;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+nav li {
+	list-style: none;
+	padding-left: 50px;
+	float: left;
+}
+
+nav li a {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'OptimusPrinceps';
+	font-size: 25px;
+	letter-spacing: 2px;
+}
+nav li a:hover {
+	text-decoration: underline;
+}
+@font-face {
+  font-family: 'OptimusPrinceps';
+  /*src: url('webfont.eot'); /* IE9 Compat Modes */
+  src: 
+       url('../font/OptimusPrinceps.ttf')  format('truetype'); /* Safari, Android, iOS */
+}

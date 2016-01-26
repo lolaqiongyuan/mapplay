@@ -1,11 +1,10 @@
-mixin accordion(title, classMod)
+mixin city(title, classMod)
   if !classMod
     - classMod = ''
 
-  div(class='accordion' + classMod)
-    h4.accordion-title(data-accordion-target) #{title}
-    div.accordion-content-wrapper
-      div.accordion-content
+  section(class='js-section' + classMod)
+    h2.title(data-zoom-middle) #{title}
+    div
         if block
           block
         else
