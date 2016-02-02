@@ -1,13 +1,35 @@
 //throttled resize event
 (function(){
-  var resizeTimeout = null;
+	
+	//return the promise
+	function get(url){
 
-  $(function(){
-    $(window).on('resize', function(){
-      if(resizeTimeout) clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(function(){
-        $(window).trigger('throttled-resize');
-      }, 100);
-    });
-  });
+		var promise = new Promise(function(resolve, reject){
+			var ajax = new XMLHttpRequest();
+
+			ajax.open('GET', url);
+
+			ajax.onload = function(){
+				if(ajax.status == 200) {
+					resolve(ajax.response);
+				} else {
+					reject(ajax);
+				}
+			}
+			ajax.send();
+		});
+
+		return promise;
+	};
+
+	get('dam/africa.svg').then(function(response){
+		var id = document.getElementById('map');
+		$(response).appendTo(id);
+
+	}).catch(
+        // Log the rejection reason
+        function(reason) {
+        	console.log('Handle rejected promise ('+reason+') here.');
+        });
+
 })();
