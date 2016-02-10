@@ -1,6 +1,5 @@
-//throttled resize event
-(function(){
 
+(function(){
 
 	// create a canvas
 	function createCanvas(width, height){
@@ -9,25 +8,33 @@
 		canvas.id = 'Lola\'s adventure';
 		canvas.width = width;
 		canvas.height = height;
-		canvas.style.border = "1px solid gray";
-
+		canvas.style.border = "1px solid #cccccc";
 		return canvas;
 	};
 
 	// canvas test drive
 	var width = window.innerWidth;
     var height = window.innerHeight;
-	var img = document.getElementById("test");
+    var state = {width, height};
+    var mapSVG = null;
+    // var img = null;
+    var target = {
+        x:0,y:0,
+        width: state.width,
+        height: state.height,
+    }
+    var slice = {
+    	x:0,y:0,
+        width: state.width,
+        height: state.height,
+    }
+	var url = 'dam/africa.svg';
 	var canvas = createCanvas(width, height);
 	var ctx = canvas.getContext('2d');
 	var container = document.getElementById('body');
 	canvas.style.position = 'absolute';
     canvas.style.left = 0;
     canvas.style.top = 0;
-	// ctx.beginPath();
-	// ctx.arc(95,50,40,0,2*Math.PI);
-	// ctx.stroke();
-	ctx.drawImage(img,0,0);
 	container.appendChild(canvas);
 
 	
@@ -52,9 +59,32 @@
 		return promise;
 	};
 
-	get('dam/africa.svg').then(function(response){
-		console.log(ctx);
-		drawCanvasSlice(ctx,img);
+	function loadImage(src){
+		var promise = new Promise(function(resolve, reject){
+			var img = new Image();
+			img.addEventListener("load",function(event){
+		      resolve(img);
+		    });
+			img.src = src;
+		});
+		return promise;
+	};
+
+	get(url).then(function(response){
+		
+		mapSVG = new DOMParser().parseFromString(response,'image/svg+xml');// parse a string(response) into a DOM Document
+		mapSVG = Array.from(mapSVG.childNodes).filter(function(node){
+            var tag = node.tagName;
+            if(typeof tag == 'undefined') return false;
+            return tag.toLowerCase() == 'svg';
+          })[0]; //only get the svg part from Document 
+
+		console.log(mapSVG);
+
+		loadImage(url).then(function(img){
+			// ctx.drawImage(img, 0, 0)
+			renderMap(img);
+		});
 	}).catch(
         // Log the rejection reason
         function(reason) {
@@ -63,47 +93,52 @@
 	);
 
 
-	function drawCanvasSlice(ctx, img){
-	  // var sliceScale={
-	  //   x:img.width/slice.width,
-	  //   y:img.height/slice.height,
-	  // }
-	  // var targetSize={
-	  //   width:target.width*sliceScale.x,
-	  //   height:target.height*sliceScale.y
-	  // }
-	  // var targetScale={
-	  //   x:targetSize.width/img.width,
-	  //   y:targetSize.height/img.height
-	  // }
+	function drawCanvasSlice(ctx, img, slice, target){
+	  var sliceScale={
+	    x:img.width/slice.width,
+	    y:img.height/slice.height,
+	  }
+	  var targetSize={
+	    width:target.width*sliceScale.x,
+	    height:target.height*sliceScale.y
+	  }
+	  var targetScale={
+	    x:targetSize.width/img.width,
+	    y:targetSize.height/img.height
+	  }
 
 	  ctx.drawImage(
-	    img,
-	    // Math.round(-slice.x*targetScale.x),
-	    // Math.round(-slice.y*targetScale.y),
-	    // Math.round(targetSize.width),
-	    // Math.round(targetSize.height)
-	    0, 0
+	    img, 
+	    Math.round(-slice.x*targetScale.x),
+	    Math.round(-slice.y*targetScale.y),
+	    Math.round(targetSize.width),
+	    Math.round(targetSize.height)	   
 	  )
 	}
 
-	function drawMap(){
-		drawCanvasSlice(ctx, map.map);
-	}
+
+	var mapBuffer = createCanvas(1750,2235);
+	var mapBufferCtx = mapBuffer.getContext('2d');
 
 	function drawMapBuffer(ctx, pos, zoom){
 		ctx.fillStyle = 'white';
 		ctx.fillRect(0,0,800,600);
 
 		// var mapIndex = 0;
-		drawCanvasSlice(ctx, map.map);
-		return ctx;
+		drawCanvasSlice(ctx, pos, slice, target);
+		
 	}
 
 	function updateMapBuffer(buffer){
 		// var buffer = drawMapBuffer();
 		// this.mapBufferOffset = buffer.offset;
+		drawMapBuffer(ctx, buffer, 2);
 	};
+
+	function drawMap(img){
+		// var map = drawMapBuffer(mapBufferCtx, slice, 2);
+		drawCanvasSlice(ctx, img, slice, target);
+	}
 
 	// function drawRoute(){
 
@@ -113,10 +148,10 @@
 
 	// };
 
-	function renderMap(){
-		drawCanvasSlice();
-		updateMapBuffer();
-		drawMap();
+	function renderMap(img){
+		// drawCanvasSlice();
+		// updateMapBuffer(slice);
+		drawMap(img);
 	};
 
 	function updateScroll(){
@@ -124,8 +159,6 @@
 		// drawRoute();
 
 	};
-
-
 
 })();
 // (function(){
